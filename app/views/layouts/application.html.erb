@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Diyou</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title><%= 'DIYou' %></title>
+  <!-- #meta information -->
+  <%= yield :head %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
-<%= yield %>
+<%= render partial: "layouts/header" %>
 
-</body>
-</html>
+<%= render 'layouts/messages' %>
+
+  <%= yield %>
+
+<%= render partial: "layouts/footer" %>
+
