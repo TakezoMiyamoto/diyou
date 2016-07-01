@@ -30,6 +30,13 @@ gem "font-awesome-rails"
 
 # 管理画面
 gem 'activeadmin', github: 'gregbell/active_admin'
+
+# Login
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
