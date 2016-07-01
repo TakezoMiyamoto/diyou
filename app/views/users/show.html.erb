@@ -7,7 +7,14 @@
     <div class="row">
         <div class="col-md-3 user-profile">
             <h4><%= @user.username %></h4>
-           
+            <!-- image -->
+            <% if @user.avatar.url == nil && @user.remote_avatar == nil %>
+                <p><%= link_to image_tag("/images/user.jpg" , alt: "あかん"), user_path(@user) %></p>
+            <% elsif @user.remote_avatar != nil && @user.avatar.url == nil %>
+                <p><%= link_to image_tag(@user.remote_avatar , alt: @user.username), user_path(@user) %></p>
+            <% else %>
+                <p><%= link_to image_tag(@user.avatar.url , alt: @user.username), user_path(@user) %></p>
+            <% end %>
             <% if @user == current_user %>
                 <%= link_to "プロフィールの編集", edit_user_path(@user), class: "btn btn-large btn-info" %>
             <% end %>

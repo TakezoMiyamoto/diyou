@@ -36,7 +36,16 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+# images
+gem 'carrierwave'
 
+gem 'mini_magick'
+
+# Amazon S3を使用
+gem 'fog'
+
+# form
+gem 'simple_form'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

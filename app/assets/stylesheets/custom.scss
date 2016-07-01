@@ -1,6 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 @import "font-awesome";
+
+
 
 html {
   position: relative;
@@ -20,12 +23,159 @@ body {
 
 
 #brand-logo {
-    color:#00004d;
+    color:#F6A2BF;
 }
 #brand-logo:hover {
-    color:#000099;
+    color:#FF99FF;
 }
 
+
+.login-container{
+    position: relative;
+    width: 300px;
+    margin: 80px auto;
+    padding: 20px 40px 40px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+#output{
+    position: absolute;
+    width: 300px;
+    top: -75px;
+    left: 0;
+    color: #fff;
+}
+
+#output.alert-success{
+    background: rgb(25, 204, 25);
+}
+
+#output.alert-danger{
+    background: rgb(228, 105, 105);
+}
+
+
+.login-container::before,.login-container::after{
+    content: "";
+    position: absolute;
+    width: 100%;height: 100%;
+    top: 3.5px;left: 0;
+    background: #fff;
+    z-index: -1;
+    -webkit-transform: rotateZ(4deg);
+    -moz-transform: rotateZ(4deg);
+    -ms-transform: rotateZ(4deg);
+    border: 1px solid #ccc;
+
+}
+
+.login-container::after{
+    top: 5px;
+    z-index: -2;
+    -webkit-transform: rotateZ(-2deg);
+     -moz-transform: rotateZ(-2deg);
+      -ms-transform: rotateZ(-2deg);
+
+}
+
+.avatar{
+    width: 100px;height: 100px;
+    margin: 10px auto 30px;
+    border-radius: 100%;
+    border: 2px solid #aaa;
+    background-size: cover;
+}
+
+.form-box input{
+    width: 100%;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+    height:40px;
+    border: 1px solid #ccc;;
+    background: #fafafa;
+    transition:0.2s ease-in-out;
+
+}
+
+.form-box input:focus{
+    outline: 0;
+    background: #eee;
+}
+
+.form-box input[type="text"]{
+    border-radius: 5px 5px 0 0;
+    text-transform: lowercase;
+}
+
+.form-box input[type="password"]{
+    border-radius: 0 0 5px 5px;
+    border-top: 0;
+}
+
+.form-box button.login{
+    margin-top:15px;
+    padding: 10px 20px;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
 
 .jumbotron {
         margin-top: -20px;
@@ -61,6 +211,57 @@ body {
 
 }
 
+#ready-for-jumbotron {
+    margin-top: -20px;
+    height: 630px;
+    background-image: url(/images/kazuki_umiganijinmibe.jpg);
+    background-size: cover;
+    background-position: center 60%;
+    background-repeat: no-repeat;
+    h1 {
+        font-family: 'Poiret One', cursive;
+        font-weight: bold;
+        margin-top: 120px;
+        color: #F6A2BF;
+    }
+    
+    h2 {
+        font-family: 'Poiret One', cursive;
+        font-weight: bold;
+        margin-top: 30px;
+        color: #F6A2BF;
+        text-align: center;
+    }
+    h3 {
+        font-family: 'Poiret One', cursive;
+        font-weight: bold;
+        margin-top: 240px;
+        color: #F6A2BF;
+        text-align: center;
+        text-shadow: 1px 1px 2px #FF88FF;
+    }
+    p {
+        font-family: 'Poiret One', cursive;
+        font-weight: bold;
+        margin-top: 40px;
+        text-align: center;
+        color: #F6A2BF; 
+    }
+    
+    .btn {
+        margin-bottom: 100px;
+    }
+    
+}
+
+@media (max-width: 767px){
+   .jumbotron {
+    height: 550px;
+    background-image: url(/images/fan.jpeg);
+    background-size: cover;
+   }
+}
+
 .home-contents {
     background-color: #FFEEFF;
     width: 100%;
@@ -79,14 +280,172 @@ body {
     }
 }
 
+#readyfor-contents {
+    background-color: #FFEEFF;
+    margin-top: -10px;
+    width: 100%;
+    height: 650px;
+    margin-bottom: 40px;
+    text-align: center;
 
+    h2 {
+        padding-top: 40px;
+        text-align: center;
+    }
+    
+    h4 {
+        margin-top: 40px;
+    }
+    
+    h5 {
+        text-align: center;
+        margin-top: 70px;
+    }
+
+    h6 {
+        margin-top: 30px;
+    }
+    p {
+        text-align: center;
+        margin-top: 0px;
+    }
+}
+
+#about-zadankai {
+    margin-top: 20px;
+    width: 100%;
+    height: 550px;
+    padding: 20px 40px;
+    
+    h2 {
+        
+    }
+    
+    p {
+        line-height: 180%;
+    }
+    
+}
+
+.icon_image {
+    width: 40px;
+    height: 40px;
+    display: table-cell;
+    border-radius: 40px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  }
+
+.comment1-1  {
+    max-width: 652.5px;
+    min-width: 370px;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.comment1-1 .imgL    {
+    float: left;
+    text-align: center;
+}
+.comment1-1 .imgL img    {
+    padding: 3px;
+    margin-bottom: 5px;
+    width: 60px;
+    height: 60px;
+    display: table-cell;
+    border-radius: 60px;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+}
+.comment1-1 .commentContents {
+    width: 80%;
+    max-width: 550px;
+    min-width: 285px;
+    float: right;
+    background: #EEE;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    padding: 12px 19px;
+    margin-left: 5px;
+
+}
+.comment1-1 .commentContents p {
+    margin-bottom: 1.2em;
+}
+.comment1-1 p.img    {
+    position: absolute;
+    left: 110px;
+    top: 20px;
+}
+.comment1-1 p.data   {
+    color: #999;
+    text-align: right;
+    margin-bottom:0;
+}
+.comment1-1:after    {
+    height:0;
+    visibility: hidden;
+    content: ".";
+    display: block;
+    clear: both; }
+
+.comment2-1  {
+    max-width: 652.5px;
+    min-width: 370px;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.comment2-1 .imgL   {
+    float: right;
+    text-align: center;
+}
+.comment2-1 .imgL img  {
+    padding: 3px;
+    margin-bottom: 5px;
+    width: 60px;
+    height: 60px;
+    display: table-cell;
+    border-radius: 60px;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+}
+.comment2-1 .commentContents {
+    width: 80%;
+    max-width: 550px;
+    min-width: 285px;
+    float: left;
+    background: #EEE;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    padding: 12px 19px;
+    margin-left: 5px;
+}
+.comment2-1 .commentContents p  {
+    margin-bottom: 1.2em;
+}
+.comment2-1 p.img    {
+    position: absolute;
+    right: 110px;
+    top: 20px;
+}
+.comment2-1 p.data  {
+    color: #999;
+    text-align: right;
+    margin-bottom:0;
+}
+.comment2-1:after {
+    height:0;
+    visibility: hidden;
+    content: ".";
+    display: block;
+    clear: both; }
 
 .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     background-color: #f5f5f5;
-    color: #00004d;
     padding: 10px;
     text-align: center;
         .navbar-nav{
@@ -101,3 +460,92 @@ body {
         }
 }
 
+
+
+
+
+.link {
+    color: #F6A2BF;
+    text-align: center;
+
+}
+.link:hover {
+    color: #FF99FF;
+    text-decoration: none;
+    text-align: center;
+}
+
+  /*flash*/
+
+.alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-alert {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+.alert-notice {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+/* term */
+.term-wrapper {
+    border: 1px solid #C0C0C0;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px #c0c0c0;
+    background-color: #F5F5F5;
+
+    h2 {
+        text-align: center;
+    }
+}
+
+.contents {
+    padding: 30px;
+    font-size: 13px;
+    h1 {
+    text-align: center;
+    padding-bottom: 10px;
+    }
+    h4 {
+    font-weight: bold;
+    }
+}
+
+.pagenation {
+    text-align: center;
+}
+
+
+/* circle number */
+span.step {
+  background: #5bc0de;
+  border-color: #46b8da;
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.6em;
+  margin-right: 5px;
+  text-align: center;
+  width: 1.6em;
+}
