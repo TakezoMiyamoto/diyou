@@ -11,7 +11,8 @@
       <%= simple_form_for(@user) do |f| %>
       <%= f.error_notification %>
         <div class="field">
-          <%= f.input :username, label:'お名前',autofocus: true, class: 'input form-control' %><em>(最大6文字)</em>
+          <%= f.label :username, "お名前" %>
+          <%= f.text_field :username, autofocus: true, class: 'input form-control' %><em>(最大6文字)</em>
         </div><br/>
 
         <div class="field">
@@ -23,6 +24,8 @@
           <%= f.label :email, "メールアドレス" %><br />
           <%= f.email_field :email, autofocus: true, class: 'input form-control' %>
         </div><br/>
+
+
 
         <div class="actions">
           <%= f.submit "プロフィールを更新する", class: 'btn btn-primary withripple' %>
