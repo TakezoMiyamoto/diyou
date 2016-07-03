@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160703140010) do
+ActiveRecord::Schema.define(version: 20160703140451) do
 
   create_table "ingredients", force: :cascade do |t|
     t.integer  "recipe_id",     limit: 4
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20160703140010) do
   add_index "recipes", ["user_id", "created_at"], name: "index_recipes_on_user_id_and_created_at", using: :btree
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
 
+  create_table "steps", force: :cascade do |t|
+    t.integer  "recipe_id",   limit: 4
+    t.string   "step_image",  limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "steps", ["recipe_id"], name: "index_steps_on_recipe_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -65,4 +75,5 @@ ActiveRecord::Schema.define(version: 20160703140010) do
 
   add_foreign_key "ingredients", "recipes"
   add_foreign_key "recipes", "users"
+  add_foreign_key "steps", "recipes"
 end
