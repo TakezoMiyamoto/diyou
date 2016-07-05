@@ -46,6 +46,10 @@ gem 'fog'
 
 # form
 gem 'simple_form'
+
+# 動的入力フォーム
+gem 'nested_form_fields'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
