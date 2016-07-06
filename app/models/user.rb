@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   # Relations
   has_many :recipes
 
+  # Uploader
   mount_uploader :avatar, AvatarUploader
 
   # facebook oath
