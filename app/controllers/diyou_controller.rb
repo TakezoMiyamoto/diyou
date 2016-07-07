@@ -6,9 +6,6 @@ class DiyouController < ApplicationController
     @title = "Diyouとは？"
   end
 
-  def readyfor
-    @title = "レシピをはじめる"
-  end
 
   def term
 
