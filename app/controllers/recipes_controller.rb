@@ -13,12 +13,14 @@ class RecipesController < ApplicationController
 
   end
 
+  def readyfor
+    @title = "はじめよう！"
+  end
+
   def new
     @recipe = Recipe.new
     @title = "新規レシピ作成"
   end
-
- # 編集中
 
   def create
     @recipe = current_user.recipes.build(recipe_params)

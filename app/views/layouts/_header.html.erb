@@ -10,10 +10,10 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav pull-right">
                 <li>
-                    <%= link_to "レシピを投稿する", "#" %>
+                    <%= link_to "レシピを投稿する", recipes_readyfor_path %>
                 </li>
-                <li><%= link_to "レシピを探す", "#" %></li>
-                <li><%= link_to "DIYouとは？", "#"  %></li>
+                <li><%= link_to "レシピを探す", recipes_path %></li>
+                <li><%= link_to "DIYouとは？", diyou_about_path  %></li>
                  <% if user_signed_in? %>
                     <li>
                       <%= link_to "マイページ", user_path(current_user) %>
