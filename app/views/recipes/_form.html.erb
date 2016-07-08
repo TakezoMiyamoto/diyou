@@ -1,0 +1,17 @@
+
+<div class="field">
+    <%= f.nested_fields_for :ingredients do |ingredients_form| %>
+      <%= ingredients_form.label :material_name, "材料/道具名" %>
+      <%= ingredients_form.text_field :material_name %><br />
+      <%= ingredients_form.label :qty, "量・個数" %>
+      <%= ingredients_form.text_field :qty %><br />
+      <%= ingredients_form.label :ing_image, "写真" %>
+      <%= ingredients_form.text_field :ing_image %><br />
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

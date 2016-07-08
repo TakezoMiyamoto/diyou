@@ -19,7 +19,11 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @recipe.ingredients.build
+    @recipe.steps.build
     @title = "新規レシピ作成"
+
+
   end
 
   def create
@@ -78,7 +82,8 @@ private
   end
 
   def edit_recipe_params
-    params.require(:project).permit(:recipe_name, :category, :main_image, :level, :time, :cost, :youtube_url)
+    params.require(:project).permit(:recipe_name, :category, :main_image, :level, :time, :cost, :youtube_url,
+      ingredients: [:id, :material_name, :qty, :ing_image])
   end
 
   #recipe のオーナーかどうか判断
