@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @recipe.ingredients.build
+    2.times{ @recipe.ingredients.build }
     @recipe.steps.build
     @title = "新規レシピ作成"
 
