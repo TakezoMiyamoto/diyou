@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160703140451) do
+ActiveRecord::Schema.define(version: 20160709143853) do
 
   create_table "ingredients", force: :cascade do |t|
     t.integer  "recipe_id",     limit: 4
