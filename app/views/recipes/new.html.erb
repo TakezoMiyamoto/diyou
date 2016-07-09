@@ -28,8 +28,8 @@
                <th>Action</th>
             </tr>
             <%= f.nested_fields_for :ingredients, wrapper_tag: :tr do |q| %>
-                <td><%= q.text_field   :material_name,     class: 'form-control' %></td>
-                <td><%= q.number_field :qty, class: 'form-control' %></td>
+                <td><%= q.text_field   :material_name,     class: 'form-control', :placeholder => "例) ドライバー" %></td>
+                <td><%= q.text_field :qty, class: 'form-control', :placeholder => "例) 1個" %></td>
                 <td><%= q.file_field   :ing_image,     class: 'form-control' %></td>
                 <td><%= q.remove_nested_fields_link 'Delete', class: 'btn btn-danger', role: 'button' %></td>
             <% end %>
