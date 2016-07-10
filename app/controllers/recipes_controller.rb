@@ -73,16 +73,16 @@ private
   end
 
   def recipe_find
-    @project = Project.find(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def recipe_params
     params
-      .require(:project).permit(:recipe_name, :category, :main_image, :level, :time, :cost, :youtube_url)
+      .require(:recipe).permit(:recipe_name, :category, :main_image, :level, :time, :cost, :youtube_url)
   end
 
   def edit_recipe_params
-    params.require(:project).permit(:recipe_name, :category, :main_image, :level, :time, :cost, :youtube_url,
+    params.require(:recipe).permit(:recipe_name, :category, :main_image, :level, :time, :cost, :youtube_url,
       ingredients: [:id, :material_name, :qty, :ing_image])
   end
 
