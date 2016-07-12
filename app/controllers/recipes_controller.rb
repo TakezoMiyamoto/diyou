@@ -44,6 +44,8 @@ class RecipesController < ApplicationController
 
   def edit
 
+    @recipe.ingredients.build
+
   end
 
   def update
@@ -78,12 +80,12 @@ private
 
   def recipe_params
     params
-      .require(:recipe).permit(:recipe_name, :category, :main_image, :level, :time, :cost, :youtube_url)
+      .require(:recipe).permit(:recipe_name, :category, :main_image, :level, :time, :cost, :youtube_url, ingredients_attributes: [:id, :material_name, :qty, :ing_image], steps_attributes: [:id, :step_image, :description])
   end
 
   def edit_recipe_params
     params.require(:recipe).permit(:recipe_name, :category, :main_image, :level, :time, :cost, :youtube_url,
-      ingredients: [:id, :material_name, :qty, :ing_image])
+      ingredients_attributes: [:id, :material_name, :qty, :ing_image], steps_attributes: [:id, :step_image, :description])
   end
 
   #recipe のオーナーかどうか判断
