@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recipe_id: 
+  material_name: MyString
+  qty: 1
+  ing_image: MyString
+
+two:
+  recipe_id: 
+  material_name: MyString
+  qty: 1
+  ing_image: MyString

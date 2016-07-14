@@ -1,0 +1,53 @@
+<% content_for :head do %>
+  <meta name="title" content="<%=@recipe.recipe_name %>">
+  <meta name="description" content="「<%= @recipe.recipe_name %>」に関する情報です">
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2 project-user-profile">
+      <% if @recipe.recipe_name.present? %>
+        <h4><%= @recipe.recipe_name %></h4>
+      <% end %>
+      <% if @recipe.user != nil %>
+      <h4><%= @recipe.user.username %></h4>
+        <!-- image -->
+        <% if @recipe.user.remote_avatar != nil %>
+          <%= link_to image_tag(@recipe.user.remote_avatar , alt: @recipe.user.username), user_path(@recipe.user) %>
+        <% elsif @recipe.user.avatar.url != nil %>
+          <%= link_to image_tag(@recipe.user.avatar.url , alt: @recipe.user.username), user_path(@recipe.user) %>
+        <% else %>
+          <%= link_to image_tag("/images/user.jpg" , alt: "No Image"), user_path(@recipe.user) %>
+        <% end %>
+      <% end %>
+
+      <div>
+        <% if current_user == @recipe.user && current_user != nil %>
+            <%= link_to "レシピの編集", edit_recipe_path(@recipe), class: "btn btn-large btn-default" %>
+        <% end %>
+      </div>
+    </div>
+    <div class= "col-sm-7">
+      <div class="title">
+        <h2><%= @recipe.recipe_name %></h2>
+      </div>
+        <%= image_tag(@recipe.main_image) %>
+      <div><!-- 材料表示(Ingredients) -->
+        <h3>材料・道具</h3>
+        <% @recipe.ingredients.order("created_at asc").each do |ingredient| %>
+          <p><%= image_tag(ingredient.ing_image , alt: "image") %></p>
+          <p><%= ingredient.material_name %> <%= ingredient.qty %></p>
+        <% end %>
+      </div>
+
+      <div><!-- 手順表示(Steps) -->
+        <h3>手順</h3>
+        <% @recipe.steps.order("created_at asc").each do |step| %>
+          <p><%= image_tag(step.step_image , alt: "image") %></p>
+          <p><%= step.description %></p>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

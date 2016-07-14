@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="container-inner inner-default clearfix">
+    <% recipes.order("created_at desc").each do |recipe| %>
+      <div class="item-box">
+        <div class="image">
+          <div class="img-wrap">
+            <% if recipe.main_image.present? %>
+              <%= link_to image_tag(recipe.main_image.url , alt: recipe.recipe_name), recipe %>
+            <% else %>
+              <%= link_to image_tag("no-image.png" , alt: recipe.recipe_name), recipe %>
+            <% end %>
+          </div>
+        </div>
+        <div class="detail">
+          <p class="title">
+            <%= recipe.recipe_name %>
+        </div>
+        <div class="action clearfix">
+          <%= link_to "#{recipe.category}", recipe , class: "btn-have btn btn-warning btn-sm" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

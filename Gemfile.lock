@@ -275,6 +275,10 @@ GEM
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     mysql2 (0.4.4)
+    nested_form_fields (0.7.8)
+      coffee-rails (>= 3.2.1)
+      jquery-rails
+      rails (>= 3.2.0)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -394,6 +398,7 @@ DEPENDENCIES
   jquery-rails
   mini_magick
   mysql2 (>= 0.3.13, < 0.5)
+  nested_form_fields
   omniauth
   omniauth-facebook
   rails (= 4.2.5)

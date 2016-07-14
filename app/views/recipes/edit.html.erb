@@ -1,0 +1,60 @@
+<% content_for :head do %>
+  <meta name="title" content="新規レシピ作成">
+  <meta name="description" content="新しいレシピを作成しよう">
+<% end %>
+
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 edit-project">
+  <h3 style="text-align: center;">レシピを作成する</h3>
+    <%= simple_form_for(@recipe) do |f| %>
+    <!-- error messages -->
+    <%= f.error_notification %>
+      <%= f.input :category, label: 'カテゴリー', as: :select, collection: @categories, include_blank: '選択してください', class: "form-control" %></br>
+      <%= f.label :recipe_name, "レシピ名" %>
+      <%= f.text_field :recipe_name,error: 'レシピ名は必須です。', :placeholder => "(例) 新感覚デニムを一からつくる！", class: "form-control" %><br/>
+      <%= f.input :main_image, label: "メイン画像", as: :main_image_preview, input_html: { preview_version: :thumb }, class: "form-control" %><br/>
+      <%= f.label :youtube_url, "Youtube動画 URL" %>
+      <%= f.text_field :youtube_url, as: :url, label: '',:placeholder => "https://www.youtube.com/watch?v=xxxxxxxxxxx", class: "form-control" %></br>
+
+  <!-- 材料・道具追加のテーブル -->
+  <table class="table table-striped table-bordered table-hover">
+    <%= f.label :ingredients, "材料・道具を追加" %>
+          <tbody>
+            <tr>
+               <th>材料/道具名</th>
+               <th>量・個数</th>
+               <th>写真</th>
+               <th>Action</th>
+            </tr>
+            <%= f.nested_fields_for :ingredients, wrapper_tag: :tr do |q| %>
+                <td><%= q.text_field   :material_name,     class: 'form-control', :placeholder => "例) ドライバー" %></td>
+                <td><%= q.text_field :qty, class: 'form-control', :placeholder => "例) 1個" %></td>
+                <td><%= q.file_field   :ing_image,     class: 'form-control' %></td>
+                <td><%= q.remove_nested_fields_link 'Delete', class: 'btn btn-danger', role: 'button' %></td>
+            <% end %>
+        </tbody>
+    </table>
+      <%= f.add_nested_fields_link :ingredients, '材料追加', class: 'btn btn-primary', role: 'button' %></br></br>
+
+    <!-- 各ステップ追加のテーブル -->
+    <table class="table table-striped table-bordered table-hover">
+      <%= f.label :steps, "ステップを追加" %>
+          <tbody>
+            <tr>
+               <th>イメージ</th>
+               <th>説明</th>
+               <th>Action</th>
+            </tr>
+            <%= f.nested_fields_for :steps, wrapper_tag: :tr do |q| %>
+                <td><%= q.file_field   :step_image,     class: 'form-control' %></td>
+                <td><%= q.text_field   :description,     class: 'form-control' %></td>
+                <td><%= q.remove_nested_fields_link 'Delete', class: 'btn btn-danger', role: 'button' %></td>
+            <% end %>
+        </tbody>
+    </table>
+      <%= f.add_nested_fields_link :steps, 'ステップ追加', class: 'btn btn-primary', role: 'button' %></br></br>
+      <%= f.submit "レシピを投稿する！", class: "btn btn-large btn-primary form-control" %>
+    <% end %>
+
+  </div>
+</div>

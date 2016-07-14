@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
   root'diyou#home'
+  get 'diyou/about'
+  get 'diyou/term'
+  get 'diyou/privacy'
+
+  get 'recipes/readyfor'
+  get 'recipes/new'
+
+
   devise_for :users, :controllers => {
     :sessions      => "users/sessions",
     :registrations => "users/registrations",
@@ -9,6 +17,12 @@ Rails.application.routes.draw do
   }
 
   resources :users, except: [:index]
+
+  resources :recipes do
+    get 'page/:page', :action => :index, :on => :collection
+    resources :ingredients
+    resources :steps
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
