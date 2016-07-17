@@ -17,7 +17,7 @@
         <% elsif @recipe.user.avatar.url != nil %>
           <%= link_to image_tag(@recipe.user.avatar.url , alt: @recipe.user.username), user_path(@recipe.user) %>
         <% else %>
-          <%= link_to image_tag("/images/user.jpg" , alt: "No Image"), user_path(@recipe.user) %>
+          <%= link_to image_tag("/images/no_image.png" , alt: "No Image"), user_path(@recipe.user) %>
         <% end %>
       <% end %>
 
@@ -32,19 +32,36 @@
       <div class="title">
         <h2><%= @recipe.recipe_name %></h2>
       </div>
+      <% if @recipe.main_image.url != nil %>
         <%= image_tag(@recipe.main_image) %>
-      <div><!-- 材料表示(Ingredients) -->
+      <% else %>
+        <%= image_tag("/images/no_image.png" , alt: "no image") %>
+      <% end %>
+
+      <!-- 材料表示(Ingredients) -->
+      <div>
         <h3>材料・道具</h3>
         <% @recipe.ingredients.order("created_at asc").each do |ingredient| %>
-          <p><%= image_tag(ingredient.ing_image , alt: "image") %></p>
           <p><%= ingredient.material_name %> <%= ingredient.qty %></p>
+          <!-- 材料の写真表示 -->
+          <% if ingredient.ing_image.url != nil %>
+            <p><%= image_tag(ingredient.ing_image , alt: "image") %></p>
+          <% else%>
+            <p><%= image_tag("/images/no_image.png" , alt: "no image") %></p>
+          <% end %>
         <% end %>
       </div>
 
-      <div><!-- 手順表示(Steps) -->
+      <!-- 手順表示(Steps) -->
+      <div>
         <h3>手順</h3>
         <% @recipe.steps.order("created_at asc").each do |step| %>
-          <p><%= image_tag(step.step_image , alt: "image") %></p>
+        <!-- 材料の写真表示 -->
+          <% if step.step_image.url != nil %>
+            <p><%= image_tag(step.step_image , alt: "image") %></p>
+          <% else %>
+            <p><%= image_tag("/images/no_image.png" , alt: "no image") %></p>
+          <% end %>
           <p><%= step.description %></p>
         <% end %>
       </div>
