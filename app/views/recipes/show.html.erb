@@ -32,35 +32,27 @@
       <div class="title">
         <h2><%= @recipe.recipe_name %></h2>
       </div>
+      
       <% if @recipe.main_image.url != nil %>
         <%= image_tag(@recipe.main_image) %>
       <% else %>
         <%= image_tag("/images/no_image.png" , alt: "no image") %>
-        <% end %></br>
+      <% end %></br>
+      
 
       <!-- 材料表示(Ingredients) -->
-
       <table class="table table-hover">
       <h3>材料/道具</h3>
         <thead>
             <tr>
                <th>材料/道具名</th>
                <th>量・個数</th>
-               <th>写真</th>
             </tr>
         </thead>
           <% @recipe.ingredients.order("created_at asc").each do |ingredient| %>
         <tbody>
             <td><%= ingredient.material_name %></td>
             <td><%= ingredient.qty %></td>
-            <td>
-              <!-- 材料の写真表示 -->
-              <% if ingredient.ing_image.url != nil %>
-               <%= image_tag(ingredient.ing_image , alt: "image") %>
-              <% else%>
-                <%= image_tag("/images/no_image.png" , alt: "no image") %>
-              <% end %>
-            </td>
           <% end %>
         </tbody>
       </table>
