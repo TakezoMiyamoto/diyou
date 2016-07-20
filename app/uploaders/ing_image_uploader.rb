@@ -26,13 +26,13 @@ class IngImageUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
-  process resize_to_limit: [200, 200]
+  process resize_to_limit: [400, 400]
   #
   # def scale(width, height)
   #   # do something
   # end
   version :thumb do
-    process :resize_to_fit => [200, 200]
+    process :resize_to_fit => [400, 200]
   end
 
   # Create different versions of your uploaded files:

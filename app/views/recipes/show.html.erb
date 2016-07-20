@@ -17,7 +17,7 @@
         <% elsif @recipe.user.avatar.url != nil %>
           <%= link_to image_tag(@recipe.user.avatar.url , alt: @recipe.user.username), user_path(@recipe.user) %>
         <% else %>
-          <%= link_to image_tag("/images/no_image.png" , alt: "No Image"), user_path(@recipe.user) %>
+          <%= link_to image_tag("/images/user.jpg" , alt: "No Image"), user_path(@recipe.user) %>
         <% end %>
       <% end %>
 
@@ -32,56 +32,22 @@
       <div class="title">
         <h2><%= @recipe.recipe_name %></h2>
       </div>
-      
-      <% if @recipe.main_image.url != nil %>
         <%= image_tag(@recipe.main_image) %>
-      <% else %>
-        <%= image_tag("/images/no_image.png" , alt: "no image") %>
-      <% end %></br>
-      
-
-      <!-- 材料表示(Ingredients) -->
-      <table class="table table-hover">
-      <h3>材料/道具</h3>
-        <thead>
-            <tr>
-               <th>材料/道具名</th>
-               <th>量・個数</th>
-            </tr>
-        </thead>
-          <% @recipe.ingredients.order("created_at asc").each do |ingredient| %>
-        <tbody>
-            <td><%= ingredient.material_name %></td>
-            <td><%= ingredient.qty %></td>
-          <% end %>
-        </tbody>
-      </table>
-
-      <div><!-- 手順表示(Steps) -->
-        <table class="table table-hover">
-        <h3>手順</h3>
-        <thead>
-          <tr>
-             <th>手順写真</th>
-             <th>詳細</th>
-          </tr>
-        </thead>
-            <% @recipe.steps.order("created_at asc").each do |step| %>
-        <tbody>
-            <td>
-              <!-- 手順の写真表示 -->
-              <% if step.step_image.url != nil %>
-                <p><%= image_tag(step.step_image , alt: "image") %></p>
-              <% else %>
-                <p><%= image_tag("/images/no_image.png" , alt: "no image") %></p>
-              <% end %>
-            </td>
-            <td><%= step.description %></td>
-          <% end %>
-        </tbody>
-      </table>
+      <div><!-- 材料表示(Ingredients) -->
+        <h3>材料・道具</h3>
+        <% @recipe.ingredients.order("created_at asc").each do |ingredient| %>
+          <p><%= image_tag(ingredient.ing_image , alt: "image") %></p>
+          <p><%= ingredient.material_name %> <%= ingredient.qty %></p>
+        <% end %>
       </div>
 
+      <div><!-- 手順表示(Steps) -->
+        <h3>手順</h3>
+        <% @recipe.steps.order("created_at asc").each do |step| %>
+          <p><%= image_tag(step.step_image , alt: "image") %></p>
+          <p><%= step.description %></p>
+        <% end %>
+      </div>
     </div>
 
   </div>
