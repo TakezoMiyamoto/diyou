@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160717143310) do
+ActiveRecord::Schema.define(version: 20160726074135) do
 
   create_table "ingredients", force: :cascade do |t|
     t.integer  "recipe_id",     limit: 4
@@ -39,6 +39,17 @@ ActiveRecord::Schema.define(version: 20160717143310) do
 
   add_index "recipes", ["user_id", "created_at"], name: "index_recipes_on_user_id_and_created_at", using: :btree
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "favoriter_id", limit: 4
+    t.integer  "favorited_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "relationships", ["favorited_id"], name: "index_relationships_on_favorited_id", using: :btree
+  add_index "relationships", ["favoriter_id", "favorited_id"], name: "index_relationships_on_favoriter_id_and_favorited_id", unique: true, using: :btree
+  add_index "relationships", ["favoriter_id"], name: "index_relationships_on_favoriter_id", using: :btree
 
   create_table "steps", force: :cascade do |t|
     t.integer  "recipe_id",   limit: 4
