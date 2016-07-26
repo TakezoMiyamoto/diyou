@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
 
+  resources :relationships, only: [:create, :destroy]
+
   resources :users, except: [:index]
 
   resources :recipes do
