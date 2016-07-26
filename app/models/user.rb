@@ -21,8 +21,7 @@ class User < ActiveRecord::Base
 
   # ジョインしているプロジェクトをアンジョインする
   def unfavorite(recipe)
-    favoring_relationships = favoring_relationships.find_by(favorited_id: recipe.id)
-    favoring_relationships.destroy if favoring_relationships
+    favoring_relationships.find_by_favorited_id(recipe.id).destroy
   end
 
   # あるプロジェクトにジョインしているかどうか？

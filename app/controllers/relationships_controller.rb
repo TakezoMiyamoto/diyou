@@ -1,4 +1,6 @@
 class RelationshipsController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :create, :destroy]
+
   def show
     @user = User.find(params[:favoriter_id])
     @recipe = Recipe.find(params[:favorited_id])
