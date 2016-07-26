@@ -1,5 +1,5 @@
 <%= form_for(current_user.favoring_relationships.find_by(favorited_id: @recipe.id),
              html: { method: :delete },
              remote: true) do |f| %>
-  <%= f.submit "unfavorite", class: "btn" %>
+  <%= f.submit "お気に入り解除", class: "btn" %>
 <% end %>
