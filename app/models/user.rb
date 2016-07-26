@@ -7,6 +7,29 @@ class User < ActiveRecord::Base
   # Relations
   has_many :recipes
 
+  #relationships
+  has_many :favoring_relationships, class_name:  "Relationship",
+                                     foreign_key: "favoriter_id",
+                                     dependent:   :destroy
+  has_many :favorited_recipes, through: :favoring_relationships, source: :favorited
+
+  # relationships methods
+  # プロジェクトにジョインする
+  def favorite(recipe)
+    favoring_relationships.find_or_create_by(favorited_id: recipe.id)
+  end
+
+  # ジョインしているプロジェクトをアンジョインする
+  def unfavorite(recipe)
+    favoring_relationships = favoring_relationships.find_by(favorited_id: recipe.id)
+    favoring_relationships.destroy if favoring_relationships
+  end
+
+  # あるプロジェクトにジョインしているかどうか？
+  def favoring?(recipe)
+    favorited_recipes.include?(recipe)
+  end
+
   # Uploader
   mount_uploader :avatar, AvatarUploader
 
