@@ -1,4 +1,4 @@
-class MainImagePreviewInput < SimpleForm::Inputs::FileInput
+class ImagePreviewInput < SimpleForm::Inputs::FileInput
   def input
     # :preview_version is a custom attribute from :input_html hash, so you can pick custom sizes
     version = input_html_options.delete(:preview_version)

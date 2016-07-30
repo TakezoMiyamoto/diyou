@@ -46,6 +46,7 @@ gem 'fog'
 
 # form
 gem 'simple_form'
+gem 'simple_form_fancy_uploads'
 
 # 動的入力フォーム
 gem 'nested_form_fields'
