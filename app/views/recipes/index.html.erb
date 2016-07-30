@@ -3,6 +3,46 @@
   <meta name="description" content="レシピの一覧ページです。">
 <% end %>
 
+<div class="container">
+  <!-- 検索フィールド -->
+   <div class="search">
+     <div class="search__icons">
+        <span class="search__item search__item1">
+          <%= search_form_for @q, html: { id: 'search__item_select', class: 'search__item_select' } do |f| %><br/>
+          <div class="search__item_select">
+          <!-- カテゴリーで検索 -->
+            <%= f.select :category_cont, options_for_select(@categories), {include_blank: 'カテゴリーから検索'}, {class: "search__item_select"} %>
+            <%= f.submit "検索する", class: "btn btn-sm btn-info" %>
+            <% end %>
+          </div>
+        </span>
+
+        <span class="search__item form__search">
+          <%= search_form_for @q, html: { id: 'search__item_select', class: 'form__search' } do |f| %>
+          <!-- start 特定の文字列で始まる商品名で検索 -->
+            <%= f.search_field :recipe_name_cont, id:'keyword',class: "form-control form-control-inline", placeholder: "好きな言葉をここに" %>
+            <%= f.submit "検索する", id:'search',class: "btn btn-sm btn-info" %>
+          <% end %>
+        </span>
+      </div>
+   </div>
+</div><!-- container -->
+
+<% if @q == nil %>
+<div class="container index-project">
+    <div class="container">
+      <%= render 'recipes/list' , recipes: @recipes %>
+      <%= paginate @recipes, class: 'pagenation' %>
+    </div>
+  <% else %>
+    <div class="container">
+      <%= render 'recipes/list' , recipes: @searchedRecipes %>
+      <div class="pagenation"><%= paginate @searchedRecipes %>
+    <% end %>
+    </div>
+    </div>
+</div>
+
 
 <div class="container index-project">
     <div class="container">
