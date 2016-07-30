@@ -51,6 +51,9 @@ gem 'simple_form_fancy_uploads'
 # 動的入力フォーム
 gem 'nested_form_fields'
 
+# search
+gem 'ransack'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
