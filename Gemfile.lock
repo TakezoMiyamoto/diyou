@@ -400,6 +400,7 @@ DEPENDENCIES
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   mini_magick
   mysql2 (>= 0.3.13, < 0.5)
   nested_form_fields
