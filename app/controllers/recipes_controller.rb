@@ -8,6 +8,10 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.order(created_at: :desc)
 
+    #検索
+    @q = Recipe.page(params[:page]).search(params[:q])
+    @searchedRecipes = @q.result(distinct: true)
+
     @title = "レシピ一覧"
 
 
