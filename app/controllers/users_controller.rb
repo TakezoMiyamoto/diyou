@@ -9,6 +9,11 @@ class UsersController < ApplicationController
 
   def show
     @userName = @user.username
+    # 自分のプロジェクト一覧
+    @recipes = @user.recipes.group('recipes.id')
+    @projectsCount = @recipes.count
+    # 参加中のプロジェクト一覧
+    @favProjects = @user.favorited_recipes.group('recipes.id')
     
   end
 
