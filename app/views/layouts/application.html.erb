@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= 'DIYou' %></title>
+  <% if @recipe_title.present? %>
+    <title><%= "#{@recipe_title} - DIYou" %></title>
+  <% elsif @userName.present? %>
+    <title><%= "#{@userName} さんのマイページ - DIYou" %></title>
+  <% elsif @title.present? %>
+    <title><%= "#{@title} - DIYou" %></title>
+  <% else %>
+    <title><%= 'DIYou' %></title>
+  <% end %>
   <!-- #meta information -->
   <%= yield :head %>
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
