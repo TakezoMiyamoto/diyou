@@ -21,7 +21,7 @@
         <% end %>
       <% end %>
 
-      <div>
+      <div class="recipe_edit">
         <% if current_user == @recipe.user && current_user != nil %>
             <%= link_to "レシピの編集", edit_recipe_path(@recipe), class: "btn btn-large btn-default" %>
         <% end %>
