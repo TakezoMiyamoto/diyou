@@ -6,9 +6,6 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-2 project-user-profile">
-      <% if @recipe.recipe_name.present? %>
-        <h4><%= @recipe.recipe_name %></h4>
-      <% end %>
       <% if @recipe.user != nil %>
       <h4><%= @recipe.user.username %></h4>
         <!-- image -->
@@ -21,18 +18,19 @@
         <% end %>
       <% end %>
 
-      <div>
+      <div class="recipe_edit">
         <% if current_user == @recipe.user && current_user != nil %>
             <%= link_to "レシピの編集", edit_recipe_path(@recipe), class: "btn btn-large btn-default" %>
         <% end %>
       </div>
     </div>
+
     <!-- Main Contents -->
     <div class= "col-sm-7">
       <div class="title">
-        <h2><%= @recipe.recipe_name %></h2>
+        <h2 class="recipe_name"><%= @recipe.recipe_name %></h2>
         <%= render 'users/favorite_form' %>
-      </div>
+      </div></br>
         <%= image_tag(@recipe.main_image) %>
       <!-- 材料表示(Ingredients) -->
 
