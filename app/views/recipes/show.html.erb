@@ -6,9 +6,6 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-2 project-user-profile">
-      <% if @recipe.recipe_name.present? %>
-        <h4><%= @recipe.recipe_name %></h4>
-      <% end %>
       <% if @recipe.user != nil %>
       <h4><%= @recipe.user.username %></h4>
         <!-- image -->
