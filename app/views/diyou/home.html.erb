@@ -1,6 +1,6 @@
 <div class="jumbotron">
     <div class="container">
-      <h1><%= image_tag("/images/diy.jpg", :class => "resizeimage") %></h1>
+      <h1>DIYou</h1>
       <p>Have a fun! Let's share your DIY stuff!!!</p>
       <% if user_signed_in?  %>
         <p><%= link_to "レシピを投稿しよう！", recipes_readyfor_path, class: "btn btn-large btn-info" %></p>
