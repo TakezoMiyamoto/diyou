@@ -12,7 +12,11 @@
       <%= f.input :category, label: 'カテゴリー', as: :select, collection: @categories, include_blank: '選択してください', class: "form-control" %></br>
       <%= f.label :recipe_name, "レシピ名" %>
       <%= f.text_field :recipe_name,error: 'レシピ名は必須です。', :placeholder => "(例) 新感覚デニムを一からつくる！", class: "form-control" %><br/>
-      <%= f.input :main_image, label: "メイン画像", as: :image_preview, input_html: { preview_version: :thumb }, class: "form-control" %><br/>
+      <%= f.input :main_image, label: "メイン画像", as: :image_preview, input_html: { preview_version: :thumb }, class: "form-control", onchange:"readURL(this);" %><br/>
+      <%= f.hidden_field :main_image_cache %>
+      <div id="img_prev">
+        <%= image_tag("") %></br>
+      </div>
       <%= f.label :youtube_url, "Youtube動画 URL" %>
       <%= f.text_field :youtube_url, as: :url, label: '',:placeholder => "https://www.youtube.com/watch?v=xxxxxxxxxxx", class: "form-control" %></br>
 
@@ -58,3 +62,20 @@
 
   </div>
 </div>
+
+<script>
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $('#img_prev')
+              .attr('src', e.target.result)
+              .width(150)
+              .height(200);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+    </script>
