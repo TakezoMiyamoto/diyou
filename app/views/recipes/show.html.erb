@@ -31,7 +31,7 @@
         <h2 class="recipe_name"><%= @recipe.recipe_name %></h2>
         <%= render 'users/favorite_form' %>
       </div></br>
-        <%= image_tag(@recipe.main_image) %></br>
+        <%= image_tag(@recipe.main_image) %></br></br>
       <!-- facebook いいね -->
       <div class="fb-like" data-href="<%= "http://#{request.host+request.fullpath}" %>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
       <!-- 材料表示(Ingredients) -->
