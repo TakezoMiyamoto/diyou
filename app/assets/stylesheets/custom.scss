@@ -25,11 +25,17 @@ body {
 
 #brand-logo {
     color:#3982ac;
+    text-decoration: none;
 }
 #brand-logo:hover {
     color:#19204c;
 }
 
+.navbar {
+  a {
+    text-decoration: none;
+  }
+}
 
 .login-container{
     position: relative;
@@ -458,6 +464,10 @@ body {
             font-size: .8em;
             letter-spacing: .225em;
             list-style: none;
+            text-decoration: none;
+        }
+        a {
+          text-decoration: none;
         }
 }
 
