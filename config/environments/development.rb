@@ -24,6 +24,18 @@ Rails.application.configure do
 
   # mailer
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => 'smtp.gmail.com',
+    :user_name => "takezo.m.1987@gmail.com", #ご自身のgmailアドレス
+    :password => "qifnbnvbutduflls", #ご自身のgmailアドレスのパスワード
+    :authentication => :login,
+    :enable_starttls_auto => true
+  }
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
