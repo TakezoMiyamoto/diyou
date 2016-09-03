@@ -16,7 +16,24 @@
             <%= recipe.recipe_name %>
         </div>
         <div class="action clearfix">
-          <%= link_to "#{recipe.category}", recipe , class: "btn-have btn btn-warning btn-sm" %>
+          <% if recipe.category == "アクセサリー" %>
+            <%= link_to "#{recipe.category}", recipe , class: "btn-have btn btn-warning btn-sm", style: "background-color: green; border-color: green;" %>
+
+          <% elsif recipe.category == "ガーデン" %>
+            <%= link_to "#{recipe.category}", recipe , class: "btn-have btn btn-warning btn-sm", style: "background-color: orange; border-color: orange;" %>
+
+          <% elsif recipe.category == "水回り" %>
+            <%= link_to "#{recipe.category}", recipe , class: "btn-have btn btn-warning btn-sm", style: "background-color: #4B0082; border-color: #4B0082;" %>
+
+          <% elsif recipe.category == "椅子" %>
+            <%= link_to "#{recipe.category}", recipe , class: "btn-have btn btn-warning btn-sm", style: "background-color: blue; border-color: blue;" %>
+
+          <% elsif recipe.category == "机" %>
+            <%= link_to "#{recipe.category}", recipe , class: "btn-have btn btn-warning btn-sm", style: "background-color: pink; border-color: pink;" %>
+
+           <% else %>
+            <%= link_to "#{recipe.category}", recipe , class: "btn-have btn btn-warning btn-sm", style: "background-color: red; border-color: red;" %>
+          <% end %>
         </div>
       </div>
     <% end %>
