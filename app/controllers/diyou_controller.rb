@@ -3,7 +3,7 @@ class DiyouController < ApplicationController
   end
 
   def about
-    @title = "Diyouとは？"
+    @title = "Made In Meとは？"
   end
 
 

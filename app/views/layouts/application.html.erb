@@ -4,11 +4,11 @@
   <% if @recipe_title.present? %>
     <title><%= "#{@recipe_title} - Made In Me" %></title>
   <% elsif @userName.present? %>
-    <title><%= "#{@userName} さんのマイページ - DIYou" %></title>
+    <title><%= "#{@userName} さんのマイページ - Made In Me" %></title>
   <% elsif @title.present? %>
-    <title><%= "#{@title} - DIYou" %></title>
+    <title><%= "#{@title} - Made In Me" %></title>
   <% else %>
-    <title><%= 'DIYou' %></title>
+    <title><%= 'Made In Me' %></title>
   <% end %>
   <!-- #meta information -->
   <%= yield :head %>
