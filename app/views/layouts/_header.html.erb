@@ -1,6 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-default">
     <div class="container">
-        <%= link_to "DIYou", root_path, class: "navbar-brand", id: "brand-logo" %>
+        <%= link_to "Made In Me", root_path, class: "navbar-brand", id: "brand-logo" %>
         <nav>
         <button class="navbar-toggle" data-toggle = "collapse" data-target = ".navbar-ex1-collapse">
             <span class="icon-bar"></span>
@@ -13,7 +13,7 @@
                     <%= link_to "レシピを投稿する", recipes_readyfor_path %>
                 </li>
                 <li><%= link_to "レシピを探す", recipes_path %></li>
-                <li><%= link_to "DIYouとは？", diyou_about_path  %></li>
+                <li><%= link_to "Made In Meとは？", diyou_about_path  %></li>
                  <% if user_signed_in? %>
                     <li>
                       <%= link_to "マイページ", user_path(current_user) %>
