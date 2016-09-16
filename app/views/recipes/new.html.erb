@@ -9,9 +9,11 @@
     <%= simple_form_for @recipe do |f| %>
     <!-- error messages -->
     <%= f.error_notification %>
-      <%= f.input :category, label: 'カテゴリー', as: :select, collection: @categories, include_blank: '選択してください', class: "form-control" %></br>
+      <%= f.input :category, label: 'カテゴリー', as: :select, collection: ["アクセサリー","ガーデン","水回り","椅子","机", "その他"], include_blank: '選択してください', class: "form-control" %></br>
       <%= f.label :recipe_name, "レシピ名" %>
       <%= f.text_field :recipe_name,error: 'レシピ名は必須です。', :placeholder => "(例) 新感覚デニムを一からつくる！", class: "form-control" %><br/>
+      <%= f.label :time, "所要時間" %>
+      <%= f.text_field :time,error: '時間は必須です。', :placeholder => "20", class: "form-control" %>分<br/>
       <%= f.input :main_image, label: "メイン画像", as: :image_preview, input_html: { preview_version: :thumb }, class: "form-control", onchange:"readURL(this);" %><br/>
       <%= f.hidden_field :main_image_cache %>
       <div id="img_prev">
