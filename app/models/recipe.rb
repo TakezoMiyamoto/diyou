@@ -3,6 +3,9 @@ class Recipe < ActiveRecord::Base
   has_many :ingredients
   has_many :steps
 
+  # Validation
+  validates :recipe_name, :category, presence: true
+
   # Uploader
   mount_uploader :main_image, MainImageUploader
 
