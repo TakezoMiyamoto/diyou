@@ -22,7 +22,14 @@ body {
     color: #292F33;
 }
 
+.form-horizontal .control-label{
+/* text-align:right; */
+text-align:left;
+}
 
+.center-btn {
+  text-align: center;
+}
 
 
 #brand-logo {
