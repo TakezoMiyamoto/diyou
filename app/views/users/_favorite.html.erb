@@ -1,4 +1,30 @@
 <%= form_for(current_user.favoring_relationships.build, remote: true) do |f| %>
   <div><%= hidden_field_tag :favorited_id, @recipe.id %></div>
-  <%= f.submit "お気に入り", class: "btn btn-primary" %>
+   <%= f.submit "お気に入り", class: "btn btn-primary" %>
+  <% end %>
+
+ <!--
+  Using Modernizr.js for smartphone.
+  http://modernizr.com
+-->
+<div class="general-button">
+  <div class="button-content">
+    <span class="icon-font">heartempty</span>
+    <span class="button-text">お気に入り</span>
+  </div>
+</div>
+
+<%= button_tag(type: 'submit', class: "btn btn-default btn-sm", id: 'validForm') do %>
+ <span class="icon-font"></span> okiniiri
 <% end %>
+
+
+
+
+<div class="general-button">
+  <div class="button-content">
+    <%= button_tag( class: "btn btn-default btn-sm") do %>
+      <%= content_tag :span, "お気に入り", class: "icon-font button-text" %>
+    <% end %>
+  </div>
+</div>

@@ -22,18 +22,18 @@
         </div>
 
         <div class="col-md-9 user-profile-projects">
-            <h4><%= @user.username %>さんのプロジェクト</h4>
+            <h4><%= @user.username %>さんのレシピ</h4>
             <% if @recipes.any? %>
             <%= render 'recipes/list_users' , recipes: @recipes %>
             <% else %>
-            <p>現在、自分のプロジェクトはありません。</p>
+            <p>現在、自分のレシピはありません。</p>
             <% end %>
 
-            <h4>参加しているプロジェクト</h4>
+            <h4>お気に入りレシピ</h4>
             <% if @favProjects.any? %>
             <%= render 'recipes/list_users', recipes: @favProjects %>
             <% else %>
-            <p>現在、参加しているプロジェクトはありません。</p>
+            <p>現在、お気に入りのレシピはありません。</p>
             <% end %>
         </div>
     </div>
